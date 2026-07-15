@@ -1,31 +1,75 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
-header {
-    padding: 20px 40px;
+/* --- GLASS ISLAND HEADER --- */
+.glass-island {
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px;
+    
+    /* Apple Dark Pill */
+    background: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    z-index: 1000;
+    
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.glass-nav {
     display: flex;
-    justify-content: space-between;
+    gap: 4px;
+    position: relative;
+}
+
+.nav-item-wrapper {
+    position: relative;
+    cursor: pointer;
+    border-radius: 999px;
+    z-index: 1;
+}
+
+.nav-item-highlight {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+    z-index: -1;
+    
+    /* Subtle 3D pop like the image */
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-item-content {
+    display: flex;
     align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    justify-content: center;
+    padding: 8px 24px;
+    color: #a1a1a6; /* Apple gray */
+    pointer-events: none;
+    transition: color 0.3s ease;
 }
 
-.logo {
-    font-weight: 700;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+.nav-item-content.active {
+    color: #ffffff;
 }
 
-nav a {
-    color: var(--text-main);
-    text-decoration: none;
-    margin-left: 20px;
-    font-size: 0.9rem;
-    font-weight: 400;
-    transition: color 0.3s;
+.nav-item-content svg {
+    width: 24px;
+    height: 24px;
+    opacity: 0.95;
 }
 
-nav a:hover {
-    color: var(--text-muted);
+.nav-item-content span {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
 }
 
 .hero {
