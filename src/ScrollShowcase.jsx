@@ -12,32 +12,34 @@ const ScrollShowcase = () => {
 
   // Apply spring physics to the scroll progress for buttery smooth momentum
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 80,
+    stiffness: 100,
     damping: 25,
     mass: 0.5
   });
 
-  // Wheel Rotation (Spins the whole wheel)
+  // Wheel Rotation (Spins the whole wheel): 0, 100vh, 200vh, 300vh snap points
   const wheelRotate = useTransform(smoothProgress, 
-    [0, 0.2, 0.5, 0.6, 0.9, 0.95, 1], 
-    [0, 0, -120, -120, -240, -240, -300]
+    [0, 0.333, 0.666, 1], 
+    [0, -120, -240, -360]
   );
 
   // Fade out the entire wheel at the very end
-  const wheelOpacity = useTransform(smoothProgress, [0, 0.95, 1], [1, 1, 0]);
+  const wheelOpacity = useTransform(smoothProgress, [0.666, 0.8, 1], [1, 1, 0]);
 
   // --- TEXT OPACITY & MOVEMENT ---
-  const t1Opacity = useTransform(smoothProgress, [0, 0.2, 0.3], [1, 1, 0]);
-  const t1Y       = useTransform(smoothProgress, [0, 0.2, 0.3], ["0vh", "0vh", "-5vh"]);
+  const t1Opacity = useTransform(smoothProgress, [0, 0.16], [1, 0]);
+  const t1Y       = useTransform(smoothProgress, [0, 0.16], ["0vh", "-5vh"]);
 
-  const t2Opacity = useTransform(smoothProgress, [0.3, 0.5, 0.6, 0.7], [0, 1, 1, 0]);
-  const t2Y       = useTransform(smoothProgress, [0.3, 0.5, 0.6, 0.7], ["5vh", "0vh", "0vh", "-5vh"]);
+  const t2Opacity = useTransform(smoothProgress, [0.16, 0.333, 0.5], [0, 1, 0]);
+  const t2Y       = useTransform(smoothProgress, [0.16, 0.333, 0.5], ["5vh", "0vh", "-5vh"]);
 
-  const t3Opacity = useTransform(smoothProgress, [0.7, 0.9, 0.95, 1], [0, 1, 1, 0]);
-  const t3Y       = useTransform(smoothProgress, [0.7, 0.9, 0.95, 1], ["5vh", "0vh", "0vh", "-5vh"]);
+  const t3Opacity = useTransform(smoothProgress, [0.5, 0.666, 0.833], [0, 1, 0]);
+  const t3Y       = useTransform(smoothProgress, [0.5, 0.666, 0.833], ["5vh", "0vh", "-5vh"]);
 
   return (
-    <div ref={containerRef} style={{ height: '400vh', position: 'relative', width: '100%', backgroundColor: '#000' }}>
+    <div ref={containerRef} style={{ position: 'relative', width: '100%', backgroundColor: '#000' }}>
+      
+      {/* Sticky visual content */}
       <div style={{
         position: 'sticky',
         top: 0,
@@ -155,8 +157,16 @@ const ScrollShowcase = () => {
           </div>
 
         </motion.div>
-
       </div>
+
+      {/* Snap Points Container to create the 300vh scroll space */}
+      <div style={{ marginTop: '-100vh' }}>
+        <div className="snap-point" style={{ height: '100vh' }} />
+        <div className="snap-point" style={{ height: '100vh' }} />
+        <div className="snap-point" style={{ height: '100vh' }} />
+        <div className="snap-point" style={{ height: '100vh' }} />
+      </div>
+
     </div>
   );
 };

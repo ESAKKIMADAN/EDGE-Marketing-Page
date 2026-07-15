@@ -204,3 +204,18 @@ footer {
         font-size: 1.4rem;
     }
 }
+
+/* --- SCROLL SNAPPING --- */
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.snap-point, 
+.hero, 
+.features, 
+.benefit-section, 
+footer {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}

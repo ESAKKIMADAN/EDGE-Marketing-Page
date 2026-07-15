@@ -19,11 +19,11 @@ function DynamicIsland() {
       const y = window.scrollY;
       const vh = window.innerHeight;
       
-      if (y < vh * 1.5) {
+      if (y < vh * 0.5) {
         setActive('overview');
-      } else if (y < vh * 3.0) {
+      } else if (y < vh * 1.5) {
         setActive('display');
-      } else if (y < vh * 4.0) {
+      } else if (y < vh * 2.5) {
         setActive('performance');
       } else {
         setActive('specs');
@@ -38,9 +38,9 @@ function DynamicIsland() {
     const vh = window.innerHeight;
     let target = 0;
     if (id === 'overview') target = 0;
-    else if (id === 'display') target = vh * 2;
-    else if (id === 'performance') target = vh * 3.6;
-    else if (id === 'specs') target = vh * 4.2;
+    else if (id === 'display') target = vh * 1;
+    else if (id === 'performance') target = vh * 2;
+    else if (id === 'specs') target = vh * 3;
     
     window.scrollTo({ top: target, behavior: 'smooth' });
   };
