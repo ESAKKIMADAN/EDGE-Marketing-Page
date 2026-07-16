@@ -138,7 +138,7 @@ const ScrollShowcase = () => {
             transform: 'translate(-50%, -50%) rotate(-90deg) translateY(-40vw)'
           }}>
             <motion.img 
-              src="/phone1.png" 
+              src="/phone1_enhanced.png" 
               alt="Phone 1"
               style={{
                 height: '100vw', // Added size directly to the mobile
@@ -155,7 +155,7 @@ const ScrollShowcase = () => {
             transform: 'translate(-50%, -50%) rotate(30deg) translateY(-40vw)'
           }}>
             <motion.img 
-              src="/phone2.png" 
+              src="/phone2_enhanced.png" 
               alt="Phone 2"
               style={{
                 height: '100vw',
@@ -172,7 +172,7 @@ const ScrollShowcase = () => {
             transform: 'translate(-50%, -50%) rotate(150deg) translateY(-40vw)'
           }}>
             <motion.img 
-              src="/phone3.png" 
+              src="/phone3_enhanced.png" 
               alt="Phone 3"
               style={{
                 height: '100vw',
