@@ -8,16 +8,21 @@
     transform: translateX(-50%);
     padding: 5px;
     
-    /* Apple Dark Pill */
-    background: rgba(18, 18, 18, 0.85);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    /* Premium Liquid Glass Styling */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
     
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    
     border-radius: 999px;
     z-index: 1000;
     
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .glass-nav {
@@ -215,7 +220,185 @@ html {
 .hero, 
 .features, 
 .benefit-section, 
+.device-showcase-container,
 footer {
   scroll-snap-align: start;
   scroll-snap-stop: always;
+}
+
+/* --- DEVICE SHOWCASE SECTION --- */
+.device-showcase-container {
+    position: relative;
+    width: 100%;
+    height: 200vh; /* Gives space for scroll interactions */
+    background-color: #000000;
+}
+
+.device-showcase-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 130px 20px 95px;
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 50%, rgba(20, 20, 25, 0.6) 0%, rgba(0, 0, 0, 1) 70%);
+}
+
+.showcase-header {
+    text-align: center;
+    max-width: 800px;
+    z-index: 10;
+}
+
+.showcase-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    margin-bottom: 5px;
+    background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.showcase-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+.phones-stage {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    height: 76vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+
+.phone-wrapper {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                filter 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+                transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.phone-image {
+    height: 76vh;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.95));
+    transition: filter 0.4s ease;
+}
+
+.phone-label {
+    margin-top: 15px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 500;
+    pointer-events: none;
+}
+
+/* Interactive Color Dot States */
+.phone-wrapper.dimmed {
+    opacity: 0.25;
+    filter: grayscale(0.5) blur(1px);
+}
+
+.phone-wrapper.focused {
+    opacity: 1;
+    filter: drop-shadow(0 0 35px rgba(255, 255, 255, 0.15));
+}
+
+.phone-wrapper.focused .phone-image {
+    filter: drop-shadow(0 30px 60px rgba(255, 255, 255, 0.12));
+}
+
+/* Color Picker UI */
+.color-picker-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    z-index: 10;
+}
+
+.color-dots {
+    display: flex;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px 24px;
+    border-radius: 999px;
+    
+    /* Premium Liquid Glass Styling */
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.color-dot-btn {
+    position: relative;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.3s ease;
+}
+
+.color-dot-btn .dot-inner {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--dot-color);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease;
+}
+
+.color-dot-btn:hover .dot-inner,
+.color-dot-btn.active .dot-inner {
+    transform: scale(1.15);
+}
+
+.color-dot-btn.active {
+    border-color: #ffffff;
+}
+
+.color-picker-label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    min-height: 20px;
+    transition: color 0.3s ease;
+}
+
+.glass-island.color-island {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }

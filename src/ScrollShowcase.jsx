@@ -17,24 +17,24 @@ const ScrollShowcase = () => {
     mass: 0.5
   });
 
-  // Wheel Rotation (Spins the whole wheel): 0, 100vh, 200vh, 300vh snap points
+  // Wheel Rotation (Spins the whole wheel): 0, 100vh, 200vh snap points
   const wheelRotate = useTransform(smoothProgress, 
-    [0, 0.333, 0.666, 1], 
-    [0, -120, -240, -360]
+    [0, 0.5, 1.0], 
+    [0, -120, -240]
   );
 
-  // Fade out the entire wheel at the very end
-  const wheelOpacity = useTransform(smoothProgress, [0.666, 0.8, 1], [1, 1, 0]);
+  // Keep the wheel fully opaque throughout this section as it naturally slides up
+  const wheelOpacity = 1;
 
   // --- TEXT OPACITY & MOVEMENT ---
-  const t1Opacity = useTransform(smoothProgress, [0, 0.16], [1, 0]);
-  const t1Y       = useTransform(smoothProgress, [0, 0.16], ["0vh", "-5vh"]);
+  const t1Opacity = useTransform(smoothProgress, [0, 0.25], [1, 0]);
+  const t1Y       = useTransform(smoothProgress, [0, 0.25], ["0vh", "-5vh"]);
 
-  const t2Opacity = useTransform(smoothProgress, [0.16, 0.333, 0.5], [0, 1, 0]);
-  const t2Y       = useTransform(smoothProgress, [0.16, 0.333, 0.5], ["5vh", "0vh", "-5vh"]);
+  const t2Opacity = useTransform(smoothProgress, [0.25, 0.5, 0.75], [0, 1, 0]);
+  const t2Y       = useTransform(smoothProgress, [0.25, 0.5, 0.75], ["5vh", "0vh", "-5vh"]);
 
-  const t3Opacity = useTransform(smoothProgress, [0.5, 0.666, 0.833], [0, 1, 0]);
-  const t3Y       = useTransform(smoothProgress, [0.5, 0.666, 0.833], ["5vh", "0vh", "-5vh"]);
+  const t3Opacity = useTransform(smoothProgress, [0.75, 1.0], [0, 1]);
+  const t3Y       = useTransform(smoothProgress, [0.75, 1.0], ["5vh", "0vh"]);
 
   return (
     <div ref={containerRef} style={{ position: 'relative', width: '100%', backgroundColor: '#000' }}>
@@ -63,9 +63,36 @@ const ScrollShowcase = () => {
         }}>
           {/* Text 1 */}
           <motion.div style={{ position: 'absolute', opacity: t1Opacity, y: t1Y }}>
-            <h2 style={{ fontSize: '4.5rem', fontWeight: 800, color: '#ffffff', letterSpacing: '1px', textTransform: 'uppercase', margin: 0 }}>
-              EDGE ROLLABLE
-            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', margin: 0 }}>
+              <div 
+                style={{ 
+                  width: '320px', 
+                  height: '65px', 
+                  overflow: 'hidden', 
+                  position: 'relative', 
+                  display: 'flex', 
+                  alignItems: 'center',
+                  marginBottom: '10px'
+                }}
+              >
+                <img 
+                  src="/logo_edge_new.png" 
+                  alt="EDGE Logo" 
+                  style={{ 
+                    height: '240px', 
+                    width: '360px', 
+                    mixBlendMode: 'screen',
+                    position: 'absolute',
+                    left: '-38px',
+                    top: '50%',
+                    transform: 'translateY(-50%)'
+                  }} 
+                />
+              </div>
+              <h2 style={{ fontSize: '4.5rem', fontWeight: 800, color: '#ffffff', letterSpacing: '1px', textTransform: 'uppercase', margin: 0, lineHeight: 1.1 }}>
+                ROLLABLE
+              </h2>
+            </div>
             <p style={{ fontSize: '1.4rem', color: '#a1a1a6', lineHeight: 1.6, marginTop: '20px', maxWidth: '80%' }}>
               Experience the world's first seamless rollable screen. Expand your vision effortlessly as you scroll.
             </p>
@@ -140,7 +167,7 @@ const ScrollShowcase = () => {
           </motion.div>
 
           {/* Phone 3 (Starts at 5 o'clock position -> 150deg) */}
-          <div style={{
+          <motion.div style={{
             position: 'absolute', top: '50%', left: '50%',
             transform: 'translate(-50%, -50%) rotate(150deg) translateY(-40vw)'
           }}>
@@ -154,14 +181,13 @@ const ScrollShowcase = () => {
                 filter: 'drop-shadow(0px 20px 30px rgba(0,0,0,0.8))'
               }}
             />
-          </div>
+          </motion.div>
 
         </motion.div>
       </div>
 
-      {/* Snap Points Container to create the 300vh scroll space */}
+      {/* Snap Points Container to create the 200vh scroll space */}
       <div style={{ marginTop: '-100vh' }}>
-        <div className="snap-point" style={{ height: '100vh' }} />
         <div className="snap-point" style={{ height: '100vh' }} />
         <div className="snap-point" style={{ height: '100vh' }} />
         <div className="snap-point" style={{ height: '100vh' }} />
