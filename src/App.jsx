@@ -3,11 +3,17 @@ import { motion } from 'framer-motion';
 import './App.css';
 import ScrollShowcase from './ScrollShowcase';
 import DeviceShowcase from './DeviceShowcase';
+import VideoShowcase from './VideoShowcase';
+import IntelligenceShowcase from './IntelligenceShowcase';
+import CameraShowcase from './CameraShowcase';
+import GradualBlur from './GradualBlur';
+import SideRays from './SideRays';
+import ChatBot from './ChatBot';
 
 const navItems = [
   { id: 'overview', label: 'Overview', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" /><circle cx="12" cy="12" r="3" /></svg> },
-  { id: 'display', label: 'Rollable', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 3 21 3 21 9" /><polyline points="9 21 3 21 3 15" /><line x1="21" x2="14" y1="3" y2="10" /><line x1="3" x2="10" y1="21" y2="14" /></svg> },
-  { id: 'performance', label: 'Performance', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></svg> },
+  { id: 'colors', label: 'Colors', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 3 21 3 21 9" /><polyline points="9 21 3 21 3 15" /><line x1="21" x2="14" y1="3" y2="10" /><line x1="3" x2="10" y1="21" y2="14" /></svg> },
+  { id: 'features', label: 'Features', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></svg> },
   { id: 'specs', label: 'Specs', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="8" x2="21" y1="6" y2="6" /><line x1="8" x2="21" y1="12" y2="12" /><line x1="8" x2="21" y1="18" y2="18" /><line x1="3" x2="3.01" y1="6" y2="6" /><line x1="3" x2="3.01" y1="12" y2="12" /><line x1="3" x2="3.01" y1="18" y2="18" /></svg> },
 ];
 
@@ -20,12 +26,12 @@ function DynamicIsland() {
       const y = window.scrollY;
       const vh = window.innerHeight;
 
-      if (y < vh * 0.5) {
+      if (y < vh * 2.8) {
         setActive('overview');
-      } else if (y < vh * 1.5) {
-        setActive('display');
-      } else if (y < vh * 2.5) {
-        setActive('performance');
+      } else if (y < vh * 4.8) {
+        setActive('colors');
+      } else if (y < vh * 7.8) {
+        setActive('features');
       } else {
         setActive('specs');
       }
@@ -39,9 +45,9 @@ function DynamicIsland() {
     const vh = window.innerHeight;
     let target = 0;
     if (id === 'overview') target = 0;
-    else if (id === 'display') target = vh * 1;
-    else if (id === 'performance') target = vh * 2;
-    else if (id === 'specs') target = vh * 3;
+    else if (id === 'colors') target = vh * 3;
+    else if (id === 'features') target = vh * 5;
+    else if (id === 'specs') target = vh * 8;
 
     window.scrollTo({ top: target, behavior: 'smooth' });
   };
@@ -109,46 +115,64 @@ function DynamicIsland() {
 function App() {
   return (
     <>
+      {/* Global Background Rays on the Left Side */}
+      <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', pointerEvents: 'none', zIndex: 1 }}>
+        <SideRays
+          speed={2.5}
+          rayColor1="#EAB308"
+          rayColor2="#96c8ff"
+          intensity={2}
+          spread={2}
+          origin="top-left"
+          tilt={0}
+          saturation={1.5}
+          blend={0.75}
+          falloff={1.6}
+          opacity={0.6}
+        />
+      </div>
+      
+      <GradualBlur position="top" height="3rem" target="page" curve="bezier" divCount={10} strength={0.8} opacity={0.9} zIndex={999} />
+      <GradualBlur position="bottom" height="3rem" target="page" curve="bezier" divCount={10} strength={0.8} opacity={0.9} zIndex={999} />
       <DynamicIsland />
 
       <ScrollShowcase />
 
       <DeviceShowcase />
 
-      <section className="hero">
-        <h1 className="hero-title">Unroll the Future.</h1>
-        <p className="hero-subtext">The world's first seamless rollable display, expanding your vision without limits.</p>
+      <VideoShowcase />
+
+      <CameraShowcase />
+
+      <IntelligenceShowcase />
+
+
+
+      <section className="specs-dashboard-container">
+        <div className="specs-dashboard-card">
+          <div className="spec-column">
+            <h4>Aerospace Durability</h4>
+            <p>Crafted with aerospace-grade titanium and carbon fiber for unmatched, lightweight resilience every day.</p>
+          </div>
+          <div className="spec-divider"></div>
+          <div className="spec-column">
+            <h4>Limitless Performance</h4>
+            <p>Powered by NewGen 8 Elite Gen 5 to handle your most demanding tasks effortlessly.</p>
+          </div>
+          <div className="spec-divider"></div>
+          <div className="spec-column">
+            <h4>Creaseless Canvas</h4>
+            <p>Expand your workspace smoothly with our continuous roll-out Ceramic Shield Glass screen.</p>
+          </div>
+        </div>
       </section>
 
-      <section className="features">
-        <div className="feature-card">
-          <h3 className="feature-title">Aerospace Durability</h3>
-          <p className="feature-desc">Crafted with aerospace-grade titanium and carbon fiber for unmatched, lightweight
-            resilience every day.</p>
-        </div>
-        <div className="feature-card">
-          <h3 className="feature-title">Limitless Performance</h3>
-          <p className="feature-desc">Powered by NewGen 8 Elite Gen 5 to handle your most demanding tasks
-            effortlessly.</p>
-        </div>
-        <div className="feature-card">
-          <h3 className="feature-title">Creaseless Canvas</h3>
-          <p className="feature-desc">Expand your workspace smoothly with our continuous roll-out Ceramic Shield Glass
-            screen.</p>
-        </div>
+      <section className="benefit-section" style={{ padding: 0, margin: 0, width: '100%', maxWidth: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#000' }}>
+        <img src="/WhatsApp Image 2026-07-17 at 12.51.25 AM.jpeg" alt="EDGE Internals" style={{ width: '85%', height: 'auto', display: 'block' }} />
       </section>
 
-      <section className="benefit-section">
-        <p className="benefit-text">
-          Whether you are multitasking on the go or immersing yourself in cinematic entertainment, the <span
-            className="benefit-highlight">EDGE Rollable</span> adapts to your needs. Experience the power of a tablet
-          with the portability of a smartphone, all in one striking device.
-        </p>
-      </section>
 
-      <footer>
-        <p>&copy; 2026 Samsung Electronics Co., Ltd. All Rights Reserved. (Fictional Concept)</p>
-      </footer>
+      <ChatBot />
     </>
   );
 }

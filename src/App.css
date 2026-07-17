@@ -8,21 +8,20 @@
     transform: translateX(-50%);
     padding: 5px;
     
-    /* Premium Liquid Glass Styling */
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px) saturate(180%);
-    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    /* 3D Water Drop / Liquid Glass Effect */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.02) 100%);
+    backdrop-filter: blur(20px) saturate(200%);
+    -webkit-backdrop-filter: blur(20px) saturate(200%);
     
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-    border-right: 1px solid rgba(255, 255, 255, 0.05);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.8),
+        inset 0 2px 4px rgba(255, 255, 255, 0.4),
+        inset 0 -3px 6px rgba(0, 0, 0, 0.4);
+        
     border-radius: 999px;
-    z-index: 1000;
-    
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    z-index: 9999;
 }
 
 .glass-nav {
@@ -170,6 +169,64 @@
     line-height: 1.6;
 }
 
+/* --- SPECIFICATIONS DASHBOARD CARD --- */
+.specs-dashboard-container {
+    width: 85%;
+    max-width: 1400px;
+    margin: 100px auto 120px;
+    padding: 0;
+    scroll-margin-top: 150px;
+}
+
+.specs-dashboard-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 50px 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.spec-column {
+    flex: 1;
+}
+
+.spec-column h4 {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.spec-column p {
+    color: #a1a1a6;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.spec-divider {
+    width: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    align-self: stretch;
+}
+
+@media (max-width: 900px) {
+    .specs-dashboard-card {
+        flex-direction: column;
+        padding: 30px;
+        gap: 30px;
+    }
+    .spec-divider {
+        height: 1px;
+        width: 100%;
+        align-self: auto;
+    }
+}
+
 .benefit-section {
     text-align: center;
     max-width: 800px;
@@ -188,13 +245,6 @@
     color: var(--accent);
 }
 
-footer {
-    text-align: center;
-    padding: 40px 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
 
 @media (max-width: 768px) {
     .hero-title {
@@ -218,13 +268,18 @@ html {
 
 .snap-point, 
 .hero, 
+.specs-dashboard-container,
 .features, 
 .benefit-section, 
 .device-showcase-container,
-footer {
+.video-showcase-container,
+.camera-section,
+.intelligence-section {
   scroll-snap-align: start;
-  scroll-snap-stop: always;
+  scroll-snap-stop: normal;
 }
+
+/* --- DEVICE SHOWCASE SECTION --- */
 
 /* --- DEVICE SHOWCASE SECTION --- */
 .device-showcase-container {
@@ -241,24 +296,27 @@ footer {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 130px 20px 95px;
+    padding-top: 100px;
+    box-sizing: border-box;
     overflow: hidden;
     background: radial-gradient(circle at 50% 50%, rgba(20, 20, 25, 0.6) 0%, rgba(0, 0, 0, 1) 70%);
 }
 
 .showcase-header {
     text-align: center;
+    width: 100%;
     max-width: 800px;
     z-index: 10;
+    margin-bottom: 25px;
 }
 
 .showcase-title {
-    font-size: 2.2rem;
-    font-weight: 700;
-    letter-spacing: -1.5px;
-    margin-bottom: 5px;
+    font-size: 2.8rem;
+    font-weight: 600;
+    letter-spacing: -1px;
+    margin-bottom: 0px;
     background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -274,7 +332,7 @@ footer {
     position: relative;
     width: 100%;
     max-width: 1200px;
-    height: 76vh;
+    height: 75vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -293,7 +351,7 @@ footer {
 }
 
 .phone-image {
-    height: 76vh;
+    height: 75vh;
     width: auto;
     object-fit: contain;
     filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.95));
@@ -331,6 +389,8 @@ footer {
     align-items: center;
     gap: 12px;
     z-index: 10;
+    margin-top: 15px; /* Stable flex layout spacing */
+    margin-bottom: 40px;
 }
 
 .color-dots {
@@ -397,8 +457,527 @@ footer {
 
 .glass-island.color-island {
     position: relative;
+    /* Move up visually WITHOUT affecting the flexbox layout (so phones don't move) */
+    transform: scale(0.85) translateY(-30px); 
+    margin-top: 0px;
     top: auto;
     left: auto;
-    transform: none;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* --- VIDEO SHOWCASE SECTION --- */
+.video-showcase-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    padding: 80px 20px;
+    overflow: hidden;
+}
+
+.video-showcase-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.media-box {
+    flex: 1;
+    min-width: 0;
+    aspect-ratio: 16 / 9;
+    border-radius: 40px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
+    background-color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    transform: scale(0.98);
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Fading border overlay */
+.media-box::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 40px;
+    border: 1.5px solid transparent;
+    background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 80%) border-box;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) padding-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.media-box:hover {
+    transform: scale(1);
+}
+
+.curved-media {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.showcase-text-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.showcase-heading {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.15;
+    background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+
+.showcase-paragraph {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-weight: 300;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .video-showcase-content {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+    .showcase-heading {
+        font-size: 2.5rem;
+    }
+}
+
+/* --- CHATBOT UI --- */
+.chatbot-wrapper {
+    position: fixed;
+    bottom: 50px;
+    left: 40px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    width: 90%;
+    max-width: 750px;
+    pointer-events: none; /* Let clicks pass through the invisible container */
+}
+
+.chatbot-window {
+    width: 100%;
+    /* 3D Water Drop / Liquid Glass Effect */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.02) 100%);
+    backdrop-filter: blur(20px) saturate(200%);
+    -webkit-backdrop-filter: blur(20px) saturate(200%);
+    
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.8),
+        inset 0 2px 4px rgba(255, 255, 255, 0.4),
+        inset 0 -3px 6px rgba(0, 0, 0, 0.4);
+        
+    border-radius: 24px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    max-height: 400px;
+    margin-bottom: 5px;
+    pointer-events: auto; /* Restore interactivity */
+}
+
+.chatbot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chatbot-header h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+}
+
+.chat-close-btn {
+    background: transparent;
+    border: none;
+    color: #a1a1a6;
+    cursor: pointer;
+    display: flex;
+    padding: 4px;
+    border-radius: 50%;
+    transition: color 0.3s;
+}
+
+.chat-close-btn:hover {
+    color: #fff;
+}
+
+.chatbot-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    padding-right: 5px;
+}
+.chatbot-messages::-webkit-scrollbar {
+    display: none;
+}
+
+.chat-bubble {
+    padding: 12px 18px;
+    border-radius: 18px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    max-width: 85%;
+}
+
+.chat-bubble.assistant {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.08);
+    color: #e5e5ea;
+    border-bottom-left-radius: 4px;
+}
+
+.typing-indicator {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 14px 18px;
+    width: fit-content;
+}
+
+.typing-indicator .dot {
+    width: 6px;
+    height: 6px;
+    background: #e5e5ea;
+    border-radius: 50%;
+    animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-indicator .dot:nth-child(1) { animation-delay: 0s; }
+.typing-indicator .dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator .dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typing {
+    0%, 100% { transform: translateY(0); opacity: 0.4; }
+    50% { transform: translateY(-4px); opacity: 1; }
+}
+
+.chat-bubble.user {
+    align-self: flex-end;
+    background: #ffffff;
+    color: #000000;
+    border-bottom-right-radius: 4px;
+    font-weight: 500;
+}
+
+.chatbot-input-bar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px 8px 15px;
+    
+    /* 3D Water Drop / Liquid Glass Effect */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.02) 100%);
+    backdrop-filter: blur(20px) saturate(200%);
+    -webkit-backdrop-filter: blur(20px) saturate(200%);
+    
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.7),
+        inset 0 2px 4px rgba(255, 255, 255, 0.4),
+        inset 0 -3px 6px rgba(0, 0, 0, 0.4);
+        
+    border-radius: 999px;
+    transition: background 0.3s, border-color 0.3s;
+    pointer-events: auto; /* Restore interactivity */
+}
+
+.chatbot-input-bar:focus-within {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.05) 100%);
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.9),
+        inset 0 2px 4px rgba(255, 255, 255, 0.5),
+        inset 0 -3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.chat-icon-btn {
+    background: transparent;
+    border: none;
+    color: #a1a1a6;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    transition: color 0.3s, background 0.3s;
+}
+
+.chat-icon-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.chatbot-input-bar input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.05rem;
+    padding: 10px 5px;
+    outline: none;
+    font-family: inherit;
+}
+
+.chatbot-input-bar input::placeholder {
+    color: #86868b;
+}
+
+.chat-send-btn {
+    background: #ffffff;
+    border: none;
+    color: #000000;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.3s;
+    margin-left: 5px;
+}
+
+.chat-send-btn:not(:disabled):hover {
+    transform: scale(1.05);
+}
+
+.chat-send-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    background: #a1a1a6;
+}
+
+.chatbot-minimized-btn {
+    /* 3D Water Drop / Liquid Glass Effect */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.02) 100%);
+    backdrop-filter: blur(20px) saturate(200%);
+    -webkit-backdrop-filter: blur(20px) saturate(200%);
+    
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    box-shadow: 
+        0 10px 25px rgba(0, 0, 0, 0.7),          /* Deep drop shadow */
+        inset 0 2px 4px rgba(255, 255, 255, 0.4), /* Sharp top highlight */
+        inset 0 -3px 6px rgba(0, 0, 0, 0.4);      /* Soft bottom shadow */
+    
+    border-radius: 50%;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background 0.3s, border-color 0.3s, transform 0.2s;
+    pointer-events: auto; /* Restore interactivity */
+}
+
+.chatbot-minimized-btn:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.05) 100%);
+    transform: translateY(-2px);
+    box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.8),
+        inset 0 2px 4px rgba(255, 255, 255, 0.5),
+        inset 0 -3px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* --- CAMERA SHOWCASE SECTION --- */
+.camera-section {
+    width: 100%;
+    height: 150vh;
+    display: block;
+    padding: 0;
+    overflow: visible;
+    position: relative;
+    background-color: #000000;
+}
+
+.camera-sticky-container {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.camera-text {
+    text-align: center;
+    max-width: 800px;
+}
+
+.camera-text h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0 0 20px 0;
+}
+
+.camera-text p {
+    color: #a1a1a6;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.camera-image-wrapper {
+    width: 100%;
+    border-radius: 40px;
+    overflow: hidden;
+    background-color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+}
+
+.camera-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* --- INTELLIGENCE SHOWCASE SECTION --- */
+.intelligence-section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    padding: 80px 20px;
+    overflow: hidden;
+}
+
+.intelligence-container {
+    max-width: 1400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.intelligence-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.intelligence-header h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0 0 10px 0;
+}
+
+.intelligence-header p {
+    color: #a1a1a6;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.intelligence-grid {
+    display: grid;
+    grid-template-columns: 0.75fr 1fr 1.33fr;
+    gap: 30px;
+    max-width: 1400px;
+    width: 100%;
+}
+
+.intel-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: transparent;
+}
+
+.intel-card-image-wrapper {
+    width: 100%;
+    border-radius: 32px;
+    overflow: hidden;
+    background-color: #111;
+}
+
+.intel-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.intel-card-content {
+    padding: 0 10px;
+}
+
+.intel-card-text {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: #a1a1a6;
+    margin: 0;
+    font-weight: 400;
+}
+
+.intel-card-title {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+    .intelligence-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .intelligence-grid {
+        grid-template-columns: 1fr;
+    }
 }

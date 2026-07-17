@@ -21,11 +21,11 @@ const DeviceShowcase = () => {
   // Animations driven by scroll:
   // Spread the phones out as we scroll
   // Left phone: phone2.png (Slate) slides to the left
-  const leftX = useTransform(smoothProgress, [0.1, 0.7], ["0vw", "-24vw"]);
+  const leftX = useTransform(smoothProgress, [0.1, 0.7], ["0vw", "-17vw"]);
   const leftRotate = useTransform(smoothProgress, [0.1, 0.7], [0, -5]);
 
   // Right phone: phone3.png (Cobalt) slides to the right
-  const rightX = useTransform(smoothProgress, [0.1, 0.7], ["0vw", "24vw"]);
+  const rightX = useTransform(smoothProgress, [0.1, 0.7], ["0vw", "17vw"]);
   const rightRotate = useTransform(smoothProgress, [0.1, 0.7], [0, 5]);
 
   // Center phone: phone1.png (Gold) scales up slightly
@@ -120,7 +120,7 @@ const DeviceShowcase = () => {
                       />
                     )}
                     <div className={`nav-item-content ${isActive ? 'active' : ''}`}>
-                      <span style={{ fontSize: '13px', fontWeight: 500 }}>{c.name}</span>
+                      <span style={{ fontSize: '11px', fontWeight: 500, letterSpacing: '0.5px', padding: '0 8px' }}>{c.name}</span>
                     </div>
                   </div>
                 );
