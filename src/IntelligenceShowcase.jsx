@@ -5,7 +5,7 @@ export default function IntelligenceShowcase() {
   const cards = [
     {
       id: 'visual-intel',
-      image: '/ChatGPT Image Jul 15, 2026, 09_03_16 PM.png',
+      image: '/edge_visual_intel.png',
       title: 'Visual intelligence.',
       description: 'Search, ask questions and take action with the content on your EDGE screen.',
       imageStyle: { objectFit: 'cover' },
@@ -13,7 +13,7 @@ export default function IntelligenceShowcase() {
     },
     {
       id: 'live-translate',
-      image: '/WhatsApp Image 2026-07-16 at 9.13.49 PM.jpeg',
+      image: '/edge_live_translate.png',
       title: 'Live Translation.',
       description: 'Automatically translate texts in Messages, and get live translated captions in video calls and spoken translations.',
       imageStyle: { objectFit: 'cover' },
@@ -21,7 +21,7 @@ export default function IntelligenceShowcase() {
     },
     {
       id: 'clean-up',
-      image: '/ChatGPT Image Jul 16, 2026, 09_18_45 PM.png',
+      image: '/edge_clean_up.png',
       title: 'Clean Up.',
       description: 'Remove unwanted distractions with a tap. A photo editing tool that stays true to the original intent of the photo.',
       imageStyle: { objectFit: 'contain' },
