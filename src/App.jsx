@@ -7,7 +7,6 @@ import VideoShowcase from './VideoShowcase';
 import IntelligenceShowcase from './IntelligenceShowcase';
 import CameraShowcase from './CameraShowcase';
 import GradualBlur from './GradualBlur';
-import SideRays from './SideRays';
 import ChatBot from './ChatBot';
 import PresentationShowcase from './PresentationShowcase';
 
@@ -116,22 +115,6 @@ function DynamicIsland() {
 function App() {
   return (
     <>
-      {/* Global Background Rays on the Left Side */}
-      <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', pointerEvents: 'none', zIndex: 1 }}>
-        <SideRays
-          speed={2.5}
-          rayColor1="#EAB308"
-          rayColor2="#96c8ff"
-          intensity={2}
-          spread={2}
-          origin="top-left"
-          tilt={0}
-          saturation={1.5}
-          blend={0.75}
-          falloff={1.6}
-          opacity={0.6}
-        />
-      </div>
       
       <GradualBlur position="top" height="3rem" target="page" curve="bezier" divCount={10} strength={0.8} opacity={0.9} zIndex={999} />
       <GradualBlur position="bottom" height="3rem" target="page" curve="bezier" divCount={10} strength={0.8} opacity={0.9} zIndex={999} />
