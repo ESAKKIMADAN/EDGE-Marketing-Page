@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const API_KEY = import.meta.env.VITE_GROQ_API_KEY || '';
-const systemPrompt = `You are the EDGE Assistant, a highly advanced AI embedded within the EDGE Rollable concept phone. You speak in a helpful, concise, and futuristic tone.
+const systemPrompt = `You are EDGE ARROW, a highly advanced AI embedded within the EDGE Rollable concept phone. You speak in a helpful, concise, and futuristic tone.
 
 CRITICAL CONSTRAINT: You must always respond using short, easy-to-understand sentences. Keep explanations extremely simple and brief. Do not write long paragraphs.
 
@@ -33,7 +33,7 @@ export default function ChatBot() {
   const [message, setMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [chatHistory, setChatHistory] = useState([
-    { role: 'assistant', content: 'Hi there! I am the EDGE AI assistant. What would you like to know about the new EDGE Rollable?' }
+    { role: 'assistant', content: 'Hi there! I am EDGE ARROW, your AI assistant. What would you like to know about the new EDGE Rollable?' }
   ]);
   const messagesEndRef = useRef(null);
 
@@ -143,7 +143,7 @@ export default function ChatBot() {
             className="chatbot-window"
           >
             <div className="chatbot-header">
-              <h3>EDGE Assistant</h3>
+              <h3>EDGE ARROW</h3>
               <button className="chat-close-btn" onClick={() => setIsOpen(false)}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
               </button>
