@@ -572,11 +572,11 @@ html {
 .chatbot-wrapper {
     position: fixed;
     bottom: 50px;
-    left: 40px;
+    right: 40px;
     z-index: 2000;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-end;
     gap: 15px;
     width: 90%;
     max-width: 750px;
@@ -1173,4 +1173,179 @@ html {
         gap: 30px;
     }
 }
+
+/* --- RESPONSIVE SCROLL SHOWCASE (HERO) --- */
+.scroll-text-container {
+    position: absolute;
+    left: 10%;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    z-index: 10;
+}
+
+.scroll-text-title {
+    font-size: 4.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.scroll-text-p {
+    font-size: 1.4rem;
+    color: #a1a1a6;
+    line-height: 1.6;
+    margin-top: 20px;
+    max-width: 80%;
+}
+
+.scroll-wheel {
+    position: absolute;
+    right: -75vw;
+    top: 50%;
+    margin-top: -50vw;
+    width: 100vw;
+    height: 100vw;
+    border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+    .scroll-text-container {
+        left: 7.5%;
+        width: 85%;
+        top: 18%;
+        height: 35%;
+        justify-content: flex-start;
+    }
+    
+    .scroll-text-title {
+        font-size: 2.2rem;
+    }
+    
+    .scroll-text-p {
+        font-size: 1.05rem;
+        margin-top: 12px;
+        max-width: 100%;
+    }
+    
+    .scroll-wheel {
+        right: -130vw;
+        top: 58%;
+        margin-top: 0;
+        width: 180vw;
+        height: 180vw;
+    }
+}
+
+/* --- RESPONSIVE CAMERA SHOWCASE --- */
+.camera-section-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    background-color: #000000;
+}
+
+.camera-content-container {
+    width: 100%;
+    max-width: 1400px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+}
+
+.camera-text-wrapper {
+    flex: 1;
+    z-index: 10;
+    text-align: left;
+    padding-right: 40px;
+}
+
+.camera-text-title {
+    font-size: 4rem;
+    line-height: 1.1;
+    font-weight: 700;
+    background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0 0 20px 0;
+}
+
+.camera-image-wrapper {
+    flex: 1.2;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+@media (max-width: 768px) {
+    .camera-section-container {
+        height: auto;
+        min-height: 100vh;
+        padding: 80px 24px;
+        scroll-snap-align: none !important; /* disable strict snap height on mobile auto */
+    }
+    
+    .camera-content-container {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        gap: 40px;
+        padding: 0;
+    }
+    
+    .camera-text-wrapper {
+        text-align: center;
+        padding-right: 0;
+        width: 100%;
+    }
+    
+    .camera-text-title {
+        font-size: 2.2rem;
+    }
+    
+    .camera-image-wrapper {
+        width: 100%;
+        max-width: 360px;
+    }
+}
+
+/* --- MOBILE WIDGET & SPEC TABLE FIXES --- */
+@media (max-width: 768px) {
+    html {
+        scroll-snap-type: none !important;
+    }
+    
+    .chatbot-wrapper {
+        bottom: 30px;
+        right: 20px;
+    }
+    
+    .specs-dashboard-card {
+        padding: 30px 20px;
+    }
+    
+    .specs-table th, .specs-table td {
+        padding: 10px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .specs-table td:first-child {
+        width: 40%;
+    }
+}
+
 

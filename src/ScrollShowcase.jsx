@@ -51,16 +51,7 @@ const ScrollShowcase = () => {
       }}>
 
         {/* --- TEXT CONTAINER (Left Side) --- */}
-        <div style={{
-          position: 'absolute',
-          left: '10%',
-          width: '35%',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          height: '100%',
-          zIndex: 10
-        }}>
+        <div className="scroll-text-container">
           {/* Text 1 */}
           <motion.div style={{ position: 'absolute', opacity: t1Opacity, y: t1Y }}>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', margin: 0 }}>
@@ -89,11 +80,11 @@ const ScrollShowcase = () => {
                   }} 
                 />
               </div>
-              <h2 style={{ fontSize: '4.5rem', fontWeight: 800, color: '#ffffff', letterSpacing: '1px', textTransform: 'uppercase', margin: 0, lineHeight: 1.1 }}>
+              <h2 className="scroll-text-title">
                 ROLLABLE
               </h2>
             </div>
-            <p style={{ fontSize: '1.4rem', color: '#a1a1a6', lineHeight: 1.6, marginTop: '20px', maxWidth: '80%' }}>
+            <p className="scroll-text-p">
               The world's first Rollable display device that is coming into production. Your vision unmatched, every scroll becomes endless.
             </p>
             <button style={{
@@ -126,37 +117,33 @@ const ScrollShowcase = () => {
 
           {/* Text 2 */}
           <motion.div style={{ position: 'absolute', opacity: t2Opacity, y: t2Y }}>
-            <h2 style={{ fontSize: '4.5rem', fontWeight: 800, color: '#ffffff', letterSpacing: '1px', textTransform: 'uppercase', margin: 0 }}>
+            <h2 className="scroll-text-title">
               No edge for the edge
             </h2>
-            <p style={{ fontSize: '1.4rem', color: '#a1a1a6', lineHeight: 1.6, marginTop: '20px', maxWidth: '80%' }}>
+            <p className="scroll-text-p">
               The phone is completely made of aerospace grade titanium. No peaked edges, so safe for your safe hands.
             </p>
           </motion.div>
 
           {/* Text 3 */}
           <motion.div style={{ position: 'absolute', opacity: t3Opacity, y: t3Y }}>
-            <h2 style={{ fontSize: '4.5rem', fontWeight: 800, color: '#ffffff', letterSpacing: '1px', textTransform: 'uppercase', margin: 0 }}>
+            <h2 className="scroll-text-title">
               The titanium hinge
             </h2>
-            <p style={{ fontSize: '1.4rem', color: '#a1a1a6', lineHeight: 1.6, marginTop: '20px', maxWidth: '80%' }}>
+            <p className="scroll-text-p">
               Completely motorised with a backup auto retrieval energy system that never fails. 10 million rolling sessions performed and tested before production.
             </p>
           </motion.div>
         </div>
 
         {/* --- SPINNING WHEEL (Right Side) --- */}
-        <motion.div style={{
-          position: 'absolute',
-          right: '-75vw', // Positioned to crop perfectly
-          top: '50%',
-          marginTop: '-50vw', // Mathematical center
-          width: '100vw',
-          height: '100vw',
-          borderRadius: '50%',
-          rotate: wheelRotate,
-          opacity: wheelOpacity,
-        }}>
+        <motion.div 
+          className="scroll-wheel"
+          style={{
+            rotate: wheelRotate,
+            opacity: wheelOpacity,
+          }}
+        >
           
           {/* Phone 1 (Starts at 9 o'clock position -> -90deg) */}
           <motion.div style={{
