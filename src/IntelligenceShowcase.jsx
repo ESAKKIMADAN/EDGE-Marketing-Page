@@ -5,7 +5,7 @@ export default function IntelligenceShowcase() {
   const cards = [
     {
       id: 'visual-intel',
-      image: '/edge_visual_intel.png',
+      image: '/ChatGPT Image Jul 15, 2026, 09_03_16 PM.png',
       title: 'Visual intelligence.',
       description: 'Search, ask questions and take action with the content on your EDGE screen.',
       imageStyle: { objectFit: 'cover' },
