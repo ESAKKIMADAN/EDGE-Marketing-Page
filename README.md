@@ -30,36 +30,9 @@ The **EDGE ARROW** marks a historical milestone in mobile hardware development:
 4.  **Specifications & Capabilities Panel**: A sleek specifications dashboard with matched column heights, containing a full spec table next to cards detailing the **144 FPS Gaming (with Bypass Charging directly to the GPU)** and **LTPO AMOLED 2X** capabilities.
 5.  **EDGE ARROW ChatBot**: An embedded AI chatbot configured on a Llama 3.1 LLM (powered by Groq) trained on the phone's hardware parameters to answer questions in real-time.
 
----
-
-## Getting Started
-
-To run the project locally, ensure you have **Node.js** installed on your machine.
-
-### 1. Clone the repository and install dependencies
-```bash
-npm install
-```
-
-### 2. Configure Environment Variables (Optional)
-To enable the AI neural core of the **EDGE ARROW** chatbot, create a `.env` file in the root directory and add your Groq API Key:
-```env
-VITE_GROQ_API_KEY=your_groq_api_key_here
-```
-
-### 3. Run the Local Development Server
-```bash
-npm run dev
-```
-Open [http://localhost:5173/](http://localhost:5173/) in your browser.
-
-### 4. Build for Production
-To bundle the optimized assets for distribution:
-```bash
-npm run build
-```
 
 ---
+
 
 ## Tech Stack
 
