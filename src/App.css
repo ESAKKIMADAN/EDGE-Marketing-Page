@@ -1289,6 +1289,7 @@ html {
     justify-content: center;
     background-color: transparent;
     box-shadow: none;
+    margin-left: 80px; /* Offset to the right on desktop */
 }
 
 @media (max-width: 768px) {
@@ -1320,6 +1321,7 @@ html {
     .camera-image-wrapper {
         width: 100%;
         max-width: 360px;
+        margin-left: 0; /* Center on mobile */
     }
 }
 
