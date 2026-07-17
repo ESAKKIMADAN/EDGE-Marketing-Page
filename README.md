@@ -1,6 +1,6 @@
-# EDGE ARROW - Marketing Landing Page
+# EDGE - Marketing Landing Page
 
-Welcome to the official repository for the **EDGE ARROW** marketing landing page. This page serves as a premium, state-of-the-art interactive product showcase for the world's first production-ready rollable display smartphone.
+Welcome to the official repository for the **EDGE ** marketing landing page. This page serves as a premium, state-of-the-art interactive product showcase for the world's first production-ready rollable display smartphone.
 
 Built using **React**, **Vite**, and **Framer Motion**, the application features rich visual showcases, custom WebGL ray effects, animated color transitions, and an embedded AI chatbot.
 
