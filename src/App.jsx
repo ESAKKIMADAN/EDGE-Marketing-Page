@@ -9,6 +9,7 @@ import CameraShowcase from './CameraShowcase';
 import GradualBlur from './GradualBlur';
 import SideRays from './SideRays';
 import ChatBot from './ChatBot';
+import PresentationShowcase from './PresentationShowcase';
 
 const navItems = [
   { id: 'overview', label: 'Overview', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" /><circle cx="12" cy="12" r="3" /></svg> },
@@ -148,24 +149,7 @@ function App() {
 
 
 
-      <section className="specs-dashboard-container">
-        <div className="specs-dashboard-card">
-          <div className="spec-column">
-            <h4>Aerospace Durability</h4>
-            <p>Crafted with aerospace-grade titanium and carbon fiber for unmatched, lightweight resilience every day.</p>
-          </div>
-          <div className="spec-divider"></div>
-          <div className="spec-column">
-            <h4>Limitless Performance</h4>
-            <p>Powered by NewGen 8 Elite Gen 5 to handle your most demanding tasks effortlessly.</p>
-          </div>
-          <div className="spec-divider"></div>
-          <div className="spec-column">
-            <h4>Creaseless Canvas</h4>
-            <p>Expand your workspace smoothly with our continuous roll-out Ceramic Shield Glass screen.</p>
-          </div>
-        </div>
-      </section>
+      <PresentationShowcase />
 
       <section className="benefit-section" style={{ padding: 0, margin: 0, width: '100%', maxWidth: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#000' }}>
         <img src="/WhatsApp Image 2026-07-17 at 12.51.25 AM.jpeg" alt="EDGE Internals" style={{ width: '85%', height: 'auto', display: 'block' }} />

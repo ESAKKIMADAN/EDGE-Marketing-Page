@@ -981,3 +981,196 @@ html {
         grid-template-columns: 1fr;
     }
 }
+
+/* --- PRESENTATION SHOWCASE --- */
+.presentation-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 35px;
+}
+
+.presentation-tabs-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.presentation-tabs {
+    display: flex;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 6px;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+}
+
+.presentation-tab-btn {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #a1a1a6;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 10px 24px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 1;
+}
+
+.presentation-tab-btn.active {
+    color: #fff;
+}
+
+.presentation-tab-highlight {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    z-index: -1;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.presentation-slide-container {
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Slide 1: Intro Grid */
+.intro-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.intro-feature-item {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    padding: 24px;
+    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.intro-feature-item:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.intro-feature-item h5 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 8px;
+    margin-top: 0;
+}
+
+.intro-feature-item p {
+    font-size: 0.95rem;
+    color: #a1a1a6;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Slide 2: Specs & Capabilities Layout */
+.specs-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+}
+
+.specs-table-wrapper {
+    overflow-x: auto;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.specs-table th, .specs-table td {
+    padding: 12px 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.specs-table th {
+    background: rgba(255, 255, 255, 0.04);
+    color: #fff;
+    font-weight: 600;
+}
+
+.specs-table tr:last-child td {
+    border-bottom: none;
+}
+
+.specs-table tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.specs-table td:first-child {
+    font-weight: 500;
+    color: #fff;
+    width: 35%;
+}
+
+.specs-table td:last-child {
+    color: #a1a1a6;
+}
+
+.specs-capabilities-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: stretch;
+    height: 100%;
+}
+
+.capability-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.005) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    padding: 24px;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.capability-card:hover {
+    border-color: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.capability-card h5 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #ffffff; /* Clean white color */
+    margin-bottom: 8px;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.capability-card p {
+    font-size: 0.95rem;
+    color: #a1a1a6;
+    line-height: 1.5;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .specs-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+

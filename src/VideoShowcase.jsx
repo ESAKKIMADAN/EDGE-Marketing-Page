@@ -43,9 +43,9 @@ export default function VideoShowcase() {
         </div>
         
         <div className="showcase-text-content">
-          <h2 className="showcase-heading">Smartphone or Tablet? <br/>Have Both.</h2>
+          <h2 className="showcase-heading">Smartphone or tablet?<br/>Why not both?</h2>
           <p className="showcase-paragraph">
-            Experience the ultimate hybrid. The EDGE Rollable transitions seamlessly from a pocket-sized smartphone into an expansive tablet, giving you the best of both worlds without compromise. Whether you're gaming, multitasking, or streaming, scale your view on demand.
+            The actual phone is a 6.3 inch 18.5:9 multi modular amoled display that extends. It has a fully independent motor that operates 3 fully functional twin hinges that extends the display to 9.2 inches 21:9 aspect ratio with just a gesture.
           </p>
         </div>
       </div>

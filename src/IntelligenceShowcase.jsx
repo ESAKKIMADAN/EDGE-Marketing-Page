@@ -4,26 +4,26 @@ import { motion } from 'framer-motion';
 export default function IntelligenceShowcase() {
   const cards = [
     {
-      id: 'visual-intel',
+      id: 'infinity-display',
       image: '/ChatGPT Image Jul 15, 2026, 09_03_16 PM.png',
-      title: 'Visual intelligence.',
-      description: 'Search, ask questions and take action with the content on your EDGE screen.',
+      title: 'The Infinity display.',
+      description: 'Not your regular phone, Edge Rollable has in-display volume rockers and an in-display front-facing camera.',
       imageStyle: { objectFit: 'cover' },
       wrapperStyle: { aspectRatio: '3 / 4' }
     },
     {
-      id: 'live-translate',
+      id: 'edge-os',
       image: '/edge_live_translate.png',
-      title: 'Live Translation.',
-      description: 'Automatically translate texts in Messages, and get live translated captions in video calls and spoken translations.',
+      title: 'The Edge OS.',
+      description: 'The phone comes with our own OS, the Edge OS. It has multithreaded running capabilities running on a 3nm processor. Has customisation factors at every possible factor that you can imagine, from the lock screen to your to-do list.',
       imageStyle: { objectFit: 'cover' },
       wrapperStyle: { aspectRatio: '1 / 1' }
     },
     {
-      id: 'clean-up',
-      image: '/ChatGPT Image Jul 16, 2026, 09_18_45 PM.png',
-      title: 'Clean Up.',
-      description: 'Remove unwanted distractions with a tap. A photo editing tool that stays true to the original intent of the photo.',
+      id: 'magic-keyboard',
+      image: '/WhatsApp Image 2026-07-17 at 12.37.30 AM.jpeg',
+      title: 'The magic keyboard.',
+      description: 'No more magic pins needed, all you need is a Bluetooth connection and our magic keyboard. More memory foam than a thin slice 65 keyboard, more tactile and more clicky.',
       imageStyle: { objectFit: 'contain' },
       wrapperStyle: { aspectRatio: '4 / 3' }
     }

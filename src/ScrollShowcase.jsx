@@ -94,27 +94,53 @@ const ScrollShowcase = () => {
               </h2>
             </div>
             <p style={{ fontSize: '1.4rem', color: '#a1a1a6', lineHeight: 1.6, marginTop: '20px', maxWidth: '80%' }}>
-              Experience the world's first seamless rollable screen. Expand your vision effortlessly as you scroll.
+              The world's first Rollable display device that is coming into production. Your vision unmatched, every scroll becomes endless.
             </p>
+            <button style={{
+              marginTop: '30px',
+              backgroundColor: '#ffffff',
+              color: '#000000',
+              border: 'none',
+              outline: 'none',
+              padding: '12px 30px',
+              borderRadius: '100px',
+              fontSize: '1.05rem',
+              fontWeight: 600,
+              cursor: 'pointer',
+              fontFamily: 'inherit',
+              transition: 'transform 0.2s ease, background-color 0.2s ease',
+              boxShadow: '0 4px 15px rgba(255, 255, 255, 0.15)'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'scale(1.04)';
+              e.currentTarget.style.backgroundColor = '#f5f5f7';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'scale(1)';
+              e.currentTarget.style.backgroundColor = '#ffffff';
+            }}
+            >
+              Pre-order
+            </button>
           </motion.div>
 
           {/* Text 2 */}
           <motion.div style={{ position: 'absolute', opacity: t2Opacity, y: t2Y }}>
             <h2 style={{ fontSize: '4.5rem', fontWeight: 800, color: '#ffffff', letterSpacing: '1px', textTransform: 'uppercase', margin: 0 }}>
-              Aerospace Grade
+              No edge for the edge
             </h2>
             <p style={{ fontSize: '1.4rem', color: '#a1a1a6', lineHeight: 1.6, marginTop: '20px', maxWidth: '80%' }}>
-              Forged from premium titanium and carbon fiber for unmatched durability in your hand.
+              The phone is completely made of aerospace grade titanium. No peaked edges, so safe for your safe hands.
             </p>
           </motion.div>
 
           {/* Text 3 */}
           <motion.div style={{ position: 'absolute', opacity: t3Opacity, y: t3Y }}>
             <h2 style={{ fontSize: '4.5rem', fontWeight: 800, color: '#ffffff', letterSpacing: '1px', textTransform: 'uppercase', margin: 0 }}>
-              Limitless Power
+              The titanium hinge
             </h2>
             <p style={{ fontSize: '1.4rem', color: '#a1a1a6', lineHeight: 1.6, marginTop: '20px', maxWidth: '80%' }}>
-              The Snapdragon 8 Elite Gen 2 handles your most demanding tasks at the speed of thought.
+              Completely motorised with a backup auto retrieval energy system that never fails. 10 million rolling sessions performed and tested before production.
             </p>
           </motion.div>
         </div>

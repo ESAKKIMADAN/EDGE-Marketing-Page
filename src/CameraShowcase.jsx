@@ -13,8 +13,16 @@ function CameraShowcase() {
           transition={{ duration: 0.8 }}
           style={{ flex: '1', zIndex: 10, textAlign: 'left', paddingRight: '40px' }}
         >
-          <h2 style={{ fontSize: '4rem', lineHeight: '1.1' }}>Pro-Level Camera System.</h2>
-          <p style={{ fontSize: '1.2rem', marginTop: '20px' }}>Capture every moment with unparalleled clarity. The advanced triple-lens setup delivers professional-grade photography right from your pocket, ensuring stunning detail in any lighting condition.</p>
+          <h2 style={{ fontSize: '4rem', lineHeight: '1.1' }}>The eyes of the Edge.</h2>
+          <p style={{ fontSize: '1.2rem', marginTop: '20px', lineHeight: '1.6' }}>
+            The phone comes with a 200 MP main Samsung ISOCELL HP2 sensor with a high stability gimbal loaded.
+          </p>
+          <p style={{ fontSize: '1.2rem', marginTop: '15px', lineHeight: '1.6' }}>
+            The ultrawide sensor is a 50 MP Samsung ISOCELL JN3 sensor that captures 97% of natural light along with optimization in dim light.
+          </p>
+          <p style={{ fontSize: '1.2rem', marginTop: '15px', lineHeight: '1.6' }}>
+            It also comes packed with a 50 MP 5× optical zoom telephoto camera utilizing a Sony IMX854 sensor. No more stress in zoom photos.
+          </p>
         </motion.div>
         
         <motion.div 
