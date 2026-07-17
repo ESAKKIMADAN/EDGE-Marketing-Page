@@ -21,7 +21,7 @@ export default function IntelligenceShowcase() {
     },
     {
       id: 'clean-up',
-      image: '/edge_clean_up.png',
+      image: '/ChatGPT Image Jul 16, 2026, 09_18_45 PM.png',
       title: 'Clean Up.',
       description: 'Remove unwanted distractions with a tap. A photo editing tool that stays true to the original intent of the photo.',
       imageStyle: { objectFit: 'contain' },
