@@ -74,7 +74,7 @@ const ScrollShowcase = () => {
                     width: '360px', 
                     mixBlendMode: 'screen',
                     position: 'absolute',
-                    left: '-38px',
+                    left: '-52px',
                     top: '50%',
                     transform: 'translateY(-50%)'
                   }} 
