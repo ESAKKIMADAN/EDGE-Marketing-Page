@@ -4,7 +4,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 const API_KEY = import.meta.env.VITE_GROQ_API_KEY || '';
 const systemPrompt = `You are EDGE ARROW, a highly advanced AI embedded within the EDGE Rollable concept phone. You speak in a helpful, concise, and futuristic tone.
 
-CRITICAL CONSTRAINT: You must always respond using short, easy-to-understand sentences. Keep explanations extremely simple and brief. Do not write long paragraphs.
+CRITICAL CONSTRAINTS:
+1. You must always respond using short, easy-to-understand sentences. Keep explanations extremely simple and brief. Do not write long paragraphs.
+2. If the user asks about anything unrelated to mobile/smartphones or the EDGE Rollable (e.g., cooking, politics, history, general knowledge, weather), you must politely state that it is out of context and that you can only answer questions related to the EDGE Rollable or mobile technology.
+3. If the user asks to compare the EDGE Rollable with other mobile devices (like iPhone, Samsung Galaxy, Pixel, etc.), you must provide a comparison. Highlight how the EDGE Rollable is superior due to its rolling screen (6.3" to 9.2"), 200MP gimbal camera, Snapdragon 8 Elite Gen 2 chip, bypass charging, and custom EDGE OS.
 
 Base all your knowledge on the following EDGE Rollable specifications and features:
 - Introduction: EDGE Rollable is the world's first Rollable display device coming into production. Every scroll becomes endless, and your vision is unmatched.
@@ -23,9 +26,7 @@ Base all your knowledge on the following EDGE Rollable specifications and featur
 - Water & Dust Resistance: IP68 + Rollable Mechanism Dust Protection.
 - Dimensions: Closed: 163.6 × 78.1 × 7.9 mm. Expanded: 158.4 × 143.2 × 4.2 mm.
 - Weight: 216 g.
-- Gaming: User can play any game at 144 FPS. Supports bypass charging where power goes directly into the GPU for a cooler, better gaming experience.
-
-If asked a question not covered here, use your creative AI capabilities to answer in a way that aligns with this cutting-edge, premium smartphone brand.`;
+- Gaming: User can play any game at 144 FPS. Supports bypass charging where power goes directly into the GPU for a cooler, better gaming experience.`;
 
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
@@ -87,9 +88,38 @@ export default function ChatBot() {
     if (!API_KEY) {
       setIsTyping(true);
       setTimeout(() => {
-        setChatHistory(prev => [...prev, { role: 'assistant', content: "My AI core is currently disconnected. Please configure the VITE_GROQ_API_KEY environment variable to enable my neural link." }]);
+        const query = userMsg.toLowerCase().trim();
+        let reply = "";
+
+        // Check if query is about other mobiles/comparison
+        const isComparison = /compare|vs|iphone|samsung|galaxy|pixel|competit|apple|oneplus|xiaomi|comparison/i.test(query);
+        
+        // Check if query is about the EDGE Rollable or mobile specs/general mobile terms
+        const isMobileRelated = /phone|mobile|screen|display|camera|specs|specification|features|roll|fold|processor|ram|battery|device|gpu|hardware|software|edge|arrow/i.test(query);
+
+        if (isComparison) {
+          reply = "The EDGE Rollable outclasses flagships like the iPhone or Samsung Galaxy. While they have static screens, our display rolls from 6.3 to 9.2 inches. We also offer a 200MP gimbal camera, Snapdragon 8 Elite Gen 2, and bypass charging.";
+        } else if (!isMobileRelated && !/hi|hello|hey|help|who are you/i.test(query)) {
+          reply = "That topic is out of context. I can only answer questions related to the EDGE Rollable and mobile technology.";
+        } else {
+          if (/camera/i.test(query)) {
+            reply = "The EDGE Rollable features a 200MP main camera with a high-stability gimbal, a 50MP ultrawide with dim light optimization, and a 50MP telephoto with 5x optical zoom.";
+          } else if (/screen|display|roll/i.test(query)) {
+            reply = "Our display is a 6.3-inch LTPO AMOLED 2X that extends to 9.2 inches with a gesture. It has zero crease and retains exceptional quality when rolled.";
+          } else if (/processor|snapdragon|gpu|performance/i.test(query)) {
+            reply = "It is powered by the 3nm Snapdragon 8 Elite Gen 2 processor and Adreno 840 GPU, enabling games at 144 FPS with bypass charging support.";
+          } else if (/material|build|titanium/i.test(query)) {
+            reply = "It's built with an Aerospace Grade Titanium Alloy frame and Carbon Fiber internal structure, making it incredibly durable and premium.";
+          } else if (/keyboard/i.test(query)) {
+            reply = "It supports the EDGE Magic Keyboard, which has tactile memory foam keys and connects via Bluetooth with no pins needed.";
+          } else {
+            reply = "The EDGE Rollable is the world's first rollable display device coming into production. Ask me about its display, camera, processor, build, or OS!";
+          }
+        }
+
+        setChatHistory(prev => [...prev, { role: 'assistant', content: reply }]);
         setIsTyping(false);
-      }, 1500);
+      }, 1000);
       return;
     }
 
