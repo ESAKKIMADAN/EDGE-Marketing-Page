@@ -13,9 +13,9 @@ const DeviceShowcase = () => {
   });
 
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 80,
-    damping: 20,
-    mass: 0.5
+    stiffness: 40,
+    damping: 26,
+    mass: 0.8
   });
 
   // Animations driven by scroll:

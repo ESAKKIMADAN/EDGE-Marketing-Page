@@ -12,9 +12,9 @@ const ScrollShowcase = () => {
 
   // Apply spring physics to the scroll progress for buttery smooth momentum
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 25,
-    mass: 0.5
+    stiffness: 40,
+    damping: 26,
+    mass: 0.8
   });
 
   // Wheel Rotation (Spins the whole wheel): 0, 100vh, 200vh snap points
