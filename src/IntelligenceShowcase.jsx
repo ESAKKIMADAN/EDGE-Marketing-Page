@@ -24,8 +24,8 @@ export default function IntelligenceShowcase() {
       image: '/WhatsApp Image 2026-07-17 at 12.37.30 AM.jpeg',
       title: 'The magic keyboard.',
       description: 'No more magic pins needed, all you need is a Bluetooth connection and our magic keyboard. More memory foam than a thin slice 65 keyboard, more tactile and more clicky.',
-      imageStyle: { objectFit: 'contain' },
-      wrapperStyle: { aspectRatio: '4 / 3' }
+      imageStyle: { objectFit: 'contain', transform: 'scale(0.85)' },
+      wrapperStyle: { aspectRatio: '4 / 3', backgroundColor: '#000000' }
     }
   ];
 
