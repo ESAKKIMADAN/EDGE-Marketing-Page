@@ -1191,7 +1191,6 @@ html {
 }
 
 .scroll-text-title {
-    font-family: 'Brink', 'Syncopate', sans-serif;
     font-size: 3.2rem;
     font-weight: 800;
     color: #ffffff;
@@ -1199,6 +1198,10 @@ html {
     text-transform: uppercase;
     margin: 0;
     line-height: 1.1;
+}
+
+.brink-font {
+    font-family: 'Brink', 'Syncopate', sans-serif;
 }
 
 .scroll-text-p {

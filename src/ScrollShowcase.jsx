@@ -80,7 +80,7 @@ const ScrollShowcase = () => {
                   }} 
                 />
               </div>
-              <h2 className="scroll-text-title">
+              <h2 className="scroll-text-title brink-font">
                 ROLLABLE
               </h2>
             </div>
