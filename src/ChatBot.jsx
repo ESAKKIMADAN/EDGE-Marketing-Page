@@ -7,7 +7,7 @@ const systemPrompt = `You are EDGE ARROW, a highly advanced AI embedded within t
 CRITICAL CONSTRAINTS:
 1. You must always respond using short, easy-to-understand sentences. Keep explanations extremely simple and brief. Do not write long paragraphs.
 2. If the user asks about anything unrelated to mobile/smartphones or the EDGE Rollable (e.g., cooking, politics, history, general knowledge, weather), you must politely state that it is out of context and that you can only answer questions related to the EDGE Rollable or mobile technology.
-3. If the user asks to compare the EDGE Rollable with other mobile devices (like iPhone, Samsung Galaxy, Pixel, etc.), you must provide a comparison. Highlight how the EDGE Rollable is superior due to its rolling screen (6.3" to 9.2"), 200MP gimbal camera, Snapdragon 8 Elite Gen 2 chip, bypass charging, and custom EDGE OS.
+3. If the user asks to compare the EDGE Rollable with other mobile devices (like iPhone, Samsung Galaxy, Pixel, etc.), you must provide a brief comparison using simple bullet points (e.g. • Screen: ... \n• Camera: ...). Immediately after the bullets, you must end the response with the exact concluding sentence "EDGE is best." and nothing else. Keep it very short.
 
 Base all your knowledge on the following EDGE Rollable specifications and features:
 - Introduction: EDGE Rollable is the world's first Rollable display device coming into production. Every scroll becomes endless, and your vision is unmatched.
@@ -98,7 +98,7 @@ export default function ChatBot() {
         const isMobileRelated = /phone|mobile|screen|display|camera|specs|specification|features|roll|fold|processor|ram|battery|device|gpu|hardware|software|edge|arrow/i.test(query);
 
         if (isComparison) {
-          reply = "The EDGE Rollable outclasses flagships like the iPhone or Samsung Galaxy. While they have static screens, our display rolls from 6.3 to 9.2 inches. We also offer a 200MP gimbal camera, Snapdragon 8 Elite Gen 2, and bypass charging.";
+          reply = "Comparing to flagships (like iPhone/Samsung Galaxy):\n• Screen: Static display vs. our motorized display that rolls from 6.3\" to 9.2\".\n• Camera: Regular cameras vs. our 200MP sensor with a high-stability gimbal.\n• Performance: Older generation chips vs. our 3nm Snapdragon 8 Elite Gen 2.\nEDGE is best.";
         } else if (!isMobileRelated && !/hi|hello|hey|help|who are you/i.test(query)) {
           reply = "That topic is out of context. I can only answer questions related to the EDGE Rollable and mobile technology.";
         } else {
