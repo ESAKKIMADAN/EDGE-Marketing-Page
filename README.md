@@ -6,7 +6,7 @@ Built using **React**, **Vite**, and **Framer Motion**, the application features
 
 ---
 
-## 📱 Hardware & Software Innovations
+## Hardware & Software Innovations
 
 The **EDGE ARROW** marks a historical milestone in mobile hardware development:
 
@@ -22,7 +22,7 @@ The **EDGE ARROW** marks a historical milestone in mobile hardware development:
 
 ---
 
-## 🛠️ Features & Interactive Showcases
+## Features & Interactive Showcases
 
 1.  **Scroll Wheel Hero Showcase**: Scroll down to spin a responsive, mathematically positioned showcase wheel that shifts between phone finishes and updates product descriptors smoothly.
 2.  **Color Picker Capsule Menu**: An interactive liquid-glass style island selector that allows users to toggle between Slate, Gold, and Violet chassis finishes.
@@ -32,7 +32,7 @@ The **EDGE ARROW** marks a historical milestone in mobile hardware development:
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 To run the project locally, ensure you have **Node.js** installed on your machine.
 
@@ -61,7 +61,7 @@ npm run build
 
 ---
 
-## 💻 Tech Stack
+## Tech Stack
 
 *   **Core**: React 19, JavaScript (ES6+), HTML5
 *   **Styling**: Vanilla CSS, Flexbox, CSS Grid
