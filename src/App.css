@@ -1191,6 +1191,7 @@ html {
 }
 
 .scroll-text-title {
+    font-family: 'Brink', 'Syncopate', sans-serif;
     font-size: 4.5rem;
     font-weight: 800;
     color: #ffffff;
