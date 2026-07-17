@@ -1,6 +1,6 @@
 # EDGE - Marketing Landing Page
 
-Welcome to the official repository for the **EDGE ** marketing landing page. This page serves as a premium, state-of-the-art interactive product showcase for the world's first production-ready rollable display smartphone.
+Welcome to the official repository for the EDGE marketing landing page. This page serves as a premium, state-of-the-art interactive product showcase for the world's first production-ready rollable display smartphone.
 
 Built using **React**, **Vite**, and **Framer Motion**, the application features rich visual showcases, custom WebGL ray effects, animated color transitions, and an embedded AI chatbot.
 
@@ -8,7 +8,7 @@ Built using **React**, **Vite**, and **Framer Motion**, the application features
 
 ## Hardware & Software Innovations
 
-The **EDGE ARROW** marks a historical milestone in mobile hardware development:
+The **EDGE** marks a historical milestone in mobile hardware development:
 
 *   **World's First Rollable Production Display**: A multi-modular Dynamic LTPO AMOLED 2X, HDR10+ screen that extends seamlessly from a **6.3-inch phone** (18.5:9 aspect ratio) into an expansive **9.2-inch tablet** (21:9 aspect ratio) with just a simple gesture, powered by 3 twin hinges and an independent motorized drivetrain.
 *   **Aerospace Grade Titanium Chassis**: Forged with a premium titanium and carbon-fiber frame, featuring smooth round curves with no peaked edges, making it safe and highly durable.
